@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="postal code project">
+        <div class='slds-var-p-around_small'>
+            <lightning-input label="Please enter Pincode to search postoffice details" 
+            value={pincode} 
+            onchange={handleChange}
+            placeholder="E.g. 518134"
+            name='pincode'>            
+            </lightning-input>
+        </div>
+        <div class='slds-var-p-around_small'>
+            <lightning-input label="Please enter postoffice branch to search postoffice details" 
+            value={branch} 
+            onchange={handleChange}
+            placeholder="E.g. Koilakuntla"
+            name="branch">            
+            </lightning-input>
+        </div>
+        <div class="slds-var-p-top-xx_small">
+            <lightning-button label="Get Postal details" variant="success" onclick={handleClick}></lightning-button>
+        </div>       
+        <template if:true={showPostalInfo}>
+            <lightning-datatable 
+            data={postalInformation}
+             columns={columns} 
+             key-field="Name"
+             >
+            </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
